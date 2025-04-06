@@ -1,5 +1,7 @@
 package app.featureService;
 
+import app.exceptions.DataBaseConnectionException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -20,7 +22,7 @@ public class ConnectionSupplier {
                     PropertiesLoader.getProperties(PASSWORD)
             );
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new DataBaseConnectionException(e.getMessage());
         }
     }
 }

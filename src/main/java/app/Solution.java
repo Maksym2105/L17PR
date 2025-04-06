@@ -1,5 +1,6 @@
 package app;
 
+import app.exceptions.GameShopInternalException;
 import app.featureService.ConnectionSupplier;
 import app.messages.GameShopMessages;
 import app.repository.GameRepositoryRealisation;
@@ -35,7 +36,7 @@ public class Solution {
             }while(!choice.equals("exit"));
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new GameShopInternalException(e.getMessage());
         }
     }
 
